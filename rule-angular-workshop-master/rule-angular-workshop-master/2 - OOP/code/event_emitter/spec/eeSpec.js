@@ -66,6 +66,7 @@ describe("Event Emitter class", function() {
 		
 		it('Every listener should be executed only once', function () {
 			ee.emit('test1');
+
 			expect(list1.calls.count()).toBe(1);
 			expect(list2.calls.count()).toBe(1);
 		});
