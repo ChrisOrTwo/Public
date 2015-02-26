@@ -14,11 +14,51 @@ window.addEventListener('DOMContentLoaded', function () {
 		cells;
 
 	cellProto = {
+		isAlive: function(){
+			return this.alive;
+		},
 
+		die: function(){
+			this.alive = false;
+			this.dom.classList.remove('alive');
+		},
+
+		live: function(){
+			this.alive = true;
+			this.dom.classList.add('alive');
+		},
 	};
 
 	appendListeners = function (container, startBtn, stopBtn, clearBtn) {
 
+		container.addEventListener('mousedown', function(e){
+
+			var cell, target = e.target;
+			if(target.classList.contains('cell'))
+			{
+				cell=cells[target.dataset.index];
+				if(cell.isAlive())
+					{cell.die();}
+				else
+					{cell.live();}
+			}
+		});
+
+		startBtn.addEventListener('click',function(e){
+			nextCycle(cells);
+		});
+
+		stopBtn.addEventListener('click', function(e){
+			clearTimeout(cycleTimeout);
+		});
+
+		clearBtn.addEventListener('click', function(e){
+
+			for(var x in cells)
+			{
+				cells[x].die();
+			}
+		});
 	};
 
 	init = function (xRows, yRows) {
@@ -34,10 +74,33 @@ window.addEventListener('DOMContentLoaded', function () {
 
 	createCanvas = function (container, rows, colls) {
 
+		var cellElements = [];
+		var cellElement = document.createElement("div");
+		cellElement.classList.add('cell');
+		var fragment = document.createDocumentFragment();
+
+		for(var i=0;i<rows;i++)
+		{
+			for(var j=0;j<colls;j++)
+			{
+				var child = cellElement.cloneNode(true);
+				child.style.position = "absolute";
+				child.style.left = (j * 10) + "px";
+				child.style.top = (i * 10) + "px";
+				child.setAttribute('data-index',(rows*i)+j);
+				fragment.appendChild(child);
+				cellElements.push(child);
+			}
+		}
+		container.appendChild(fragment);
+		return cellElements;
 	};
 
 	createCell = function (domEl) {
-
+		var cell = Object.create(cellProto);
+		cell.alive = false;
+		cell.dom = domEl;
+		return cell;
 	};
 
 	getLiveNeighbours = function (index, cells) {
@@ -74,7 +137,6 @@ window.addEventListener('DOMContentLoaded', function () {
 			nextCycle(cells);
 		}, 150);
 	};
-
 	init(ROWS, COLS);
 
 });
