@@ -7,13 +7,17 @@
 </head>
 
 <body ng-controller="AppCtrl">
-	<header>Loaded elements 0</header>
+	<header>Loaded elements {{count}}</header>
 	<div class="container">
 		<div class="left" ng-controller="LeftPanelCtrl">
-			<p><input type="text" name="search" placeholder="Filter list"/></p>
+			<p><input type="text" name="search" placeholder="Filter list" ng-model="search"/>
+            <ul>
+                <li ng-repeat="element in elements | filter: search" ng-click="onSelect(element)">{{element.name}}</li>
+            </ul>
+            </p>
 		</div>
 		<div class="right" ng-controller="RightPanelCtrl">
-
+            <p>{{display.name}}</p>
 		</div>
 	</div>
 
