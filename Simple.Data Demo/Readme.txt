@@ -1,3 +1,5 @@
+Presentation:
+	SimpleData-prezentacja.pptx - Prezentacja
 Solution:
 	SimpleWithMssql - projekt z demem Simple.Data na MSSQL (Simple.Data v 0.19)
 Database:
