@@ -1,4 +1,4 @@
-module app.common {
+namespace app.common {
 
     var mockResource = angular
         .module("productResourceMock",

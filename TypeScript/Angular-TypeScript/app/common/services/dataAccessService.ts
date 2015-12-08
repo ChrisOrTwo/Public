@@ -1,4 +1,4 @@
-module app.common{
+namespace app.common{
 	
 	interface IDataAccessService{
 		getProductResource(): ng.resource.IResourceClass<IProductResource>;
