@@ -9,11 +9,7 @@ namespace app.products {
 
 	export class ProductListController {
 
-		title: string;
-		showImage: boolean;
-		products: app.domain.IProduct[];
-
-		static $inject = ["dataAccessService"];
+		public static $inject = ["dataAccessService"];
 		constructor(private dataAccessService: app.common.DataAccessService) {
 
 			this.title = "Product List";
@@ -21,12 +17,16 @@ namespace app.products {
 			this.products = [];
 			this.toggleImage = this.toggleImage;
 
-			var productResource = dataAccessService.getProductResource();
+			let productResource = dataAccessService.getProductResource();
 			productResource.query(data => { this.products = data; });
 
 		}
 
-		toggleImage(): void {
+		public title: string;
+		public showImage: boolean;
+		public products: app.domain.IProduct[];
+
+		public toggleImage(): void {
 			this.showImage = !this.showImage;
 		}
 	}

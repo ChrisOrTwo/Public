@@ -1,12 +1,12 @@
 namespace app.products {
 
 	interface IProductDetailsModel {
-		product: app.domain.IProduct
-		title: string
+		product: app.domain.IProduct;
+		title: string;
 	}
 
 	interface IProductParams extends ng.route.IRouteParamsService {
-		productId: number
+		productId: number;
 	}
 
 	interface IProductDetailsController {
@@ -15,17 +15,16 @@ namespace app.products {
 
 	export class ProductDetailsController implements IProductDetailsModel {
 
-		product: app.domain.IProduct;
-		title: string;
+		public static $inject = ["dataAccessService", "$routeParams"];
 
-		static $inject = ["dataAccessService", "$routeParams"];
 		constructor(private dataAccessService: app.common.DataAccessService, private $routeParams: IProductParams) {
-
 			this.title = "Product Detail";
-
-			var productResource = dataAccessService.getProductResource();
-			productResource.get($routeParams , data => { this.product = data; });
+			let productResource = dataAccessService.getProductResource();
+			productResource.get($routeParams, data => { this.product = data; });
 		}
+
+		public product: app.domain.IProduct;
+		public title: string;
 	}
 
 	angular.module("productManagement").controller(ProductDetailsController);

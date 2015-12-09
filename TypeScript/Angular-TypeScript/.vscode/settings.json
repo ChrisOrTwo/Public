@@ -1,5 +1,10 @@
 {
 	"files.exclude": {
-		"*.js": {"when": "$(basename).ts"}
-	}
+		"*.js": {"when": "$(basename).ts"},
+		"**/*.js": {"when": "$(basename).ts"}
+	},
+	
+	"editor.formatOnType": true,
+	"editor.glyphMargin": true,
+	"editor.renderWhitespace": true
 }

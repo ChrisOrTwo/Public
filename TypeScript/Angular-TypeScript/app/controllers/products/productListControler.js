@@ -3,23 +3,20 @@ var app;
     var products;
     (function (products) {
         var ProductListController = (function () {
-            function ProductListController($scope, dataAccessService) {
-                this.$scope = $scope;
+            function ProductListController(dataAccessService) {
+                var _this = this;
                 this.dataAccessService = dataAccessService;
-                $scope.title = "Product List";
-                $scope.showImage = false;
-                $scope.products = [];
-                $scope.toggleImage = this.toggleImage;
+                this.title = "Product List";
+                this.showImage = false;
+                this.products = [];
+                this.toggleImage = this.toggleImage;
                 var productResource = dataAccessService.getProductResource();
-                productResource.query(function (data) { $scope.products = data; });
+                productResource.query(function (data) { _this.products = data; });
             }
             ProductListController.prototype.toggleImage = function () {
-                this.$scope.showImage = !this.$scope.showImage;
+                this.showImage = !this.showImage;
             };
-            // title: string;
-            // showImage: boolean;
-            // products: app.domain.IProduct[];
-            ProductListController.$inject = ["$scope", "dataAccessService"];
+            ProductListController.$inject = ["dataAccessService"];
             return ProductListController;
         })();
         products.ProductListController = ProductListController;
