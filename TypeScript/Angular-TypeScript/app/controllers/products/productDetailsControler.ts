@@ -9,10 +9,6 @@ namespace app.products {
 		productId: number;
 	}
 
-	interface IProductDetailsController {
-		vm: IProductDetailsModel;
-	}
-
 	export class ProductDetailsController implements IProductDetailsModel {
 
 		public static $inject = ["dataAccessService", "$routeParams"];

@@ -7,7 +7,7 @@ namespace app.products {
 		toggleImage(): void;
 	}
 
-	export class ProductListController {
+	export class ProductListController implements IProductListModel {
 
 		public static $inject = ["dataAccessService"];
 		constructor(private dataAccessService: app.common.DataAccessService) {

@@ -8,6 +8,7 @@ var app;
             .when("/productList", {
             templateUrl: "/app/views/products/productListView.html",
             controller: app.products.ProductListController,
+            controllerAs: "vm"
         })
             .when("/productDetails/:productId", {
             templateUrl: "/app/views/products/productDetailView.html",

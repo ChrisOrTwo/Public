@@ -1,5 +1,5 @@
 <div class="panel panel-primary">
-    <div class="panel-heading" style="font-size:large">{{::title}}
+    <div class="panel-heading" style="font-size:large">{{::vm.title}}
     </div>
 
     <div class="panel-body">
@@ -8,8 +8,8 @@
             <thead>
                 <tr>
                     <td>
-                        <button type="button" class="btn btn-primary" ng-click="toggleImage()">
-                            {{showImage ? "Hide" : "Show"}} Image
+                        <button type="button" class="btn btn-primary" ng-click="vm.toggleImage()">
+                            {{vm.showImage ? "Hide" : "Show"}} Image
                         </button>
                     </td>
                     <td>Product</td>
@@ -19,12 +19,12 @@
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="product in products">
+                <tr ng-repeat="product in vm.products">
                     <td>
-                        <img ng-if="showImage" ng-src="{{product.imageUrl}}" style="width:50px;margin:2px" title="{{product.productName}}">
+                        <img ng-if="vm.showImage" ng-src="{{product.imageUrl}}" style="width:50px;margin:2px" title="{{product.productName}}">
                     </td>
                     <td>
-                        <a ng-href="#/productDetails/{{product.productId}}">{{ product.productName}} </a>
+                        <a ng-href="#/productDetails/{{product.productId}}">{{product.productName}} </a>
                     </td>
                     <td>{{ product.productCode }}</td>
                     <td>{{ product.releaseDate | date }}</td>
