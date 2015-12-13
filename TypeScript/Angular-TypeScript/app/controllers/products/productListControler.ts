@@ -12,10 +12,13 @@ namespace app.products {
 		public static $inject = ["dataAccessService"];
 		constructor(private dataAccessService: app.common.DataAccessService) {
 
-			this.title = "Product List";
-			this.showImage = false;
+			this.title = "Product ListXXX";
+			this.showImage = true;
 			this.products = [];
 			this.toggleImage = this.toggleImage;
+
+			let t = new Test2();
+			alert(t.test.value);
 
 			let productResource = dataAccessService.getProductResource();
 			productResource.query(data => { this.products = data; });

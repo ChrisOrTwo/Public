@@ -1,6 +1,6 @@
 namespace app {
 
-	var main = angular.module("productManagement", ["ngRoute", "common.services", "productResourceMock"]);
+	let main = angular.module("productManagement", ["ngRoute", "common.services", "productResourceMock"]);
 
 	main.config(routeConfig);
 
