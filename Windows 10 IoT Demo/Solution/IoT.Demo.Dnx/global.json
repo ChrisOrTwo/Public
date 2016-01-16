@@ -1,0 +1,6 @@
+{
+  "projects": [ "src", "test" ],
+  "sdk": {
+    "version": "-arm.1.0.0-rc2-16357"
+  }
+}

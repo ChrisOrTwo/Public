@@ -1,0 +1,10 @@
+{
+  "name": "IoT.Demo.Node.WebServer",
+  "version": "0.0.0",
+  "description": "IoT.Demo.Node.WebServer",
+  "main": "server.js",
+  "author": {
+    "name": "Ghost",
+    "email": ""
+  }
+}

@@ -1,0 +1,2 @@
+MainPackage=D:\GitHub\Public\Windows 10 IoT Demo\Solution\IoT.Demo\IoT.Demo.Gpio\bin\ARM\Debug\IoT.Demo.Gpio_1.0.0.0_ARM_Debug.appx
+SymbolPackage=D:\GitHub\Public\Windows 10 IoT Demo\Solution\IoT.Demo\IoT.Demo.Gpio\AppPackages\IoT.Demo.Gpio_1.0.0.0_Debug_Test\IoT.Demo.Gpio_1.0.0.0_ARM_Debug.appxsym

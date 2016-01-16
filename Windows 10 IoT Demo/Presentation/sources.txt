@@ -1,0 +1,12 @@
+Main page:
+http://ms-iot.github.io
+
+Download Windows 10 IoT:
+http://ms-iot.github.io/content/en-US/Downloads.htm
+
+If you have more then one device / you want to control it in more sofisticated way you have:
+Windows IoT Dashboard application:
+http://ms-iot.github.io/content/en-US/Downloads.htm
+
+Commerzial usage:
+https://www.windowsforiotdevices.com/

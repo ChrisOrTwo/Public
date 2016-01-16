@@ -1,0 +1,45 @@
+﻿<Page
+    x:Class="Iot.Demo.Gpio.Pwm.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Iot.Demo.Gpio.Pwm"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:utils="using:Iot.Demo.Gpio.Pwm.Utils"
+    mc:Ignorable="d">
+    <Page.Resources>
+        <Style TargetType="TextBlock" >
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="Margin" Value="8" />
+        </Style>
+        <utils:BooleanToVisibleConverter x:Key="BooleanToVisibleConverter" />
+        <utils:BooleanToCollapsedConverter x:Key="BooleanToCollapsedConverter" />
+    </Page.Resources>
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <StackPanel MaxWidth="600" VerticalAlignment="Center">
+            <TextBlock>
+                <Run Text="Min Available Frequency:" FontWeight="Bold" />
+                <Run Text="{Binding MinFreq}" />
+                <Run Text="Hz" FontWeight="Bold" />
+            </TextBlock>
+            <TextBlock>
+                <Run Text="Max Available Frequency:" FontWeight="Bold" />
+                <Run Text="{Binding MaxFreq}" />
+                <Run Text="Hz" FontWeight="Bold" />
+            </TextBlock>
+            <TextBlock>
+                <Run Text="Actual Frequency:" FontWeight="Bold" />
+                <Run Text="{Binding Freq}" />
+                <Run Text="Hz" FontWeight="Bold" />
+            </TextBlock>
+            <TextBlock>
+                <Run Text="Duty Cycle:" FontWeight="Bold" />
+                <Run Text="{Binding DutyCycle}" />
+                <Run Text="%" FontWeight="Bold" />
+            </TextBlock>
+            <Slider Maximum="100" Minimum="0" TickPlacement="BottomRight" Value="{Binding DutyCycle, Mode=TwoWay}" />
+            <Button Content="TURN ON PWM" Command="{Binding TogglePwm}" Visibility="{Binding IsPwmRunning, Converter={StaticResource BooleanToCollapsedConverter}}" Background="ForestGreen" />
+            <Button Content="TURN OFF PWM" Command="{Binding TogglePwm}" Visibility="{Binding IsPwmRunning, Converter={StaticResource BooleanToVisibleConverter}}" />
+        </StackPanel>
+    </Grid>
+</Page>
