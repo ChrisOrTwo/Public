@@ -1,5 +1,0 @@
-
-- where can i get it?
-	http://ms-iot.github.io
-- comercial usage:
-	two paths: https://www.windowsforiotdevices.com/
